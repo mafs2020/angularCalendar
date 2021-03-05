@@ -1,0 +1,9 @@
+<form>
+    <label for="">fecha:</label>
+    <input [formControl]="fecha" type="datetime-local" id="mm">
+</form>
+<!-- asp-format="{0:yyyy-MM-dd}" -->
+<input type="button" value="fecha" (click)="gg()">
+
+<p>{{ actual | date:'mediumDate'}}</p>
+<!-- <input #dd type="datetime-local" value="2020-11-06T12:30" > -->
