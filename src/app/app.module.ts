@@ -3,10 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
-import { CalendarModule, DateAdapter } from 'angular-calendar';
-import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { rutasPadreModule } from './app.routes';
 
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,10 +14,7 @@ import { rutasPadreModule } from './app.routes';
   imports: [
     BrowserModule,
     rutasPadreModule,
-    CalendarModule.forRoot({
-      provide: DateAdapter,
-      useFactory: adapterFactory,
-    }),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
