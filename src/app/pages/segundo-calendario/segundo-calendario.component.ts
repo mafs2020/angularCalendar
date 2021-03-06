@@ -124,7 +124,9 @@ export class SegundoCalendarioComponent implements OnInit {
 
   newIngresarFecha(): FormGroup {
     return this.fb.group({
-      fecha: [new Date()]
+      fecha: [new Date()],
+      title: 'casualidad',
+      red: { primary: '#ad2121', secondary: '#FAE3E3' }
     });
   }
 

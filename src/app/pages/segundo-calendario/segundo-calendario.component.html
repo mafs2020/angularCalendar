@@ -45,6 +45,13 @@ Edit events
     </h3>
     <br /><br /><br />
 
+
+</div>
+
+
+<input type="button" value="Agregar" (click)="addFecha()" class="btn btn-secondary">
+
+<div [formGroup]="formulario">
     <div class="table-responsive">
         <table class="table table-bordered">
             <thead>
@@ -57,50 +64,33 @@ Edit events
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let event of events">
-                    <td>
-                        <input
-                            type="text"
-                            class="form-control"
-                            [(ngModel)]="event.title"
-                            (keyup)="refresh.next()"
-                        />
-                    </td>
-                    <td>
-                        <input
-                            type="color"
-                            [(ngModel)]="color.red"
-                            (change)="refresh.next()"
-                        />
-                    </td>
-                    <td>
-                        <ng2-flatpickr [config]="startOptions" [formControl]="start"></ng2-flatpickr>
-                    </td>
-                    <td>
-                        <ng2-flatpickr [config]="startOptions" [formControl]="start"></ng2-flatpickr>
-                    </td>
-                    <td>
-                        <button class="btn btn-danger" (click)="deleteEvent(event)">Delete</button>
-                    </td>
-                </tr>
+                <div formArrayName="fecha">
+                    <div *ngFor="let skill of fechas.controls; let i=index"> 
+                        <tr [formGroupName]="i">
+                            <td>
+                                <input
+                                type="text"
+                                class="form-control"
+                                formControlName="title"/>
+                                <!-- (keyup)="refresh.next()" -->
+                            </td>
+                            <td>
+                                <input
+                                type="color"
+                                formControlName="red"/></td>
+                                <!-- (change)="refresh.next()" -->
+                                <td>
+                                {{i}}
+                                <ng2-flatpickr [config]="startOptions" formControlName="fecha"></ng2-flatpickr>
+                                <!-- <button (click)="removeSkill(i)" class="btn btn-dark mx-3">Remove</button> -->
+                                </td>
+                                <!-- <td><ng2-flatpickr [config]="startOptions" formControlName="fecha"></ng2-flatpickr></td> -->
+                                <td><button class="btn btn-danger" (click)="removeSkill(i)" (click)="deleteEvent(event)">Delete</button></td>
+                        </tr>
+                    </div>
+                </div>
             </tbody>
         </table>
-    </div>
-</div>
-
-<input type="button" value="Agregar" (click)="addFecha()" class="btn btn-secondary">
-
-<div [formGroup]="formulario">
-    Skills:
-    <div formArrayName="fecha">
-        <div *ngFor="let skill of fechas.controls; let i=index">
-        <div [formGroupName]="i">
-            {{i}}
-            skill name :
-            <input type="datetime" formControlName="fecha">
-            <button (click)="removeSkill(i)" class="btn btn-dark mx-3">Remove</button>
-        </div>
-        </div>
     </div>
 </div>
 
