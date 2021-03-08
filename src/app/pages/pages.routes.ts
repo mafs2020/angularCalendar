@@ -2,14 +2,14 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 
-import { SegundoCalendarioComponent } from './segundo-calendario/segundo-calendario.component';
+import { CalendarioComponent } from './calendario/calendario.component';
 
 const rutas: Routes = [
 
     {   path: '',
         component: DashboardComponent,
         children: [
-            { path: '', component: SegundoCalendarioComponent }
+            { path: '', component: CalendarioComponent }
         ]
     }
 

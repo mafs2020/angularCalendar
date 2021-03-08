@@ -5,17 +5,16 @@ import { rutasPagesModule } from './pages.routes';
 
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
-// import { FlatpickrModule } from 'angularx-flatpickr';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { SegundoCalendarioComponent } from './segundo-calendario/segundo-calendario.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng2FlatpickrModule } from 'ng2-flatpickr';
+import { CalendarioComponent } from './calendario/calendario.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
-    SegundoCalendarioComponent
+    CalendarioComponent
   ],
   imports: [
     CommonModule,
