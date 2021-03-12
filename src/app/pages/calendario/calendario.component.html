@@ -35,12 +35,12 @@
 </h3>
 
 <div [formGroup]="formulario" class="table-responsive">
+  <input formControlName="dia">
   <table formArrayName="fecha" class="table table-bordered">
     <thead>
       <tr>
         <th>Title</th>
         <th>Primary color</th>
-        <th>Secondary color</th>
         <th>Starts at</th>
         <th>Ends at</th>
         <th>Remove</th>
@@ -57,19 +57,12 @@
           <td>
           <input
             type="color"
+            (ngModelChange)="deber()"
             (change)="refresh.next()"
-            (click)="x(i)"
+            (click)="index(i)"
             formControlName="color"
             /></td>
           <!-- [(ngModel)]="event.color.primary" -->
-        <td>
-          <input
-            type="color"
-            (change)="refresh.next()"
-            formControlName="primary"
-            />
-            <!-- [(ngModel)]="event.color.secondary" -->
-          </td>
       <td><ng2-flatpickr [config]="configsStart[i]" (click)="index(i)"></ng2-flatpickr></td>
       <td><ng2-flatpickr [config]="configsEnd[i]" (click)="index(i)"></ng2-flatpickr></td>
       <td><button class="btn btn-danger" (click)="removeSkill(i)" (click)="deleteEvent(i)">Delete</button></td>

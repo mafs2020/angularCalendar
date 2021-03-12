@@ -22,6 +22,7 @@ import {
 } from 'angular-calendar';
 import { FlatpickrOptions } from 'ng2-flatpickr';
 import { CalendarioService } from 'src/app/services/calendario.service';
+import { debounceTime } from 'rxjs/operators';
 
 const colors: any = {
   red: {
@@ -119,6 +120,7 @@ export class CalendarioComponent implements OnInit {
 
   iniciarFormulario() {
     this.formulario = this.fb.group({
+      dia: ['#ad2121', {updateOn: 'blur'}],
       fecha: this.fb.array([])
     });
   }
@@ -170,9 +172,16 @@ export class CalendarioComponent implements OnInit {
     this.refresh.next();
   }
 
+  // index para cambiar
   index(i: number) {
     this.i = i;
-    console.log(this.i);
+    console.log('this.i :>> ', this.i);
+  }
+
+  deber() {
+    console.log('this.events[this.i] :>> ', this.events[this.i]);
+    this.events[this.i].color.primary = '#ee5566';
+    console.log(this.events[this.i]);
   }
 
   cambiarStart(date, dateString){
@@ -190,10 +199,6 @@ export class CalendarioComponent implements OnInit {
     this.deleteEvent(i);
   }
 
-  x(i: number) {
-    console.log(i);
-    console.log(this.fechas.controls[i].get('title').value);
-  }
 
 }
 
