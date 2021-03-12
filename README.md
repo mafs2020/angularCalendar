@@ -2,6 +2,24 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.2.
 
+## Librerias del la APP
+
+1. date-fns
+2. flatpickr
+3. ng2-flatpickr
+
+## Diseño
+
+### Calendario
+![Calendario](https://github.com/mafs2020/angularCalendar/blob/main/src/assets/img/calendario.png)
+
+### Calendario Picker
+![Calendario](https://github.com/mafs2020/angularCalendar/blob/main/src/assets/img/datosCalendario.png)
+
+### Datos Calendario
+
+![Calendario](https://github.com/mafs2020/angularCalendar/blob/main/src/assets/img/datos.png)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
